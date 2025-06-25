@@ -5,7 +5,7 @@ import { useAppContext } from '../context/AppContext';
 
 const Navbar = () => {
     const [open, setOpen] = React.useState(false)
-    const {user,setUser,showUserLogin,navigate}=useAppContext();
+    const {user,setUser,showUserLogin,navigate,setShowUserLogin}=useAppContext();
     const logout=async ()=>{
         setUser(null);
         navigate('/')
@@ -22,7 +22,7 @@ const Navbar = () => {
             <div className="hidden sm:flex items-center gap-8">
                 <NavLink to='/'>Home</NavLink>
                 <NavLink to='/products'>All Product</NavLink>
-                <NavLink to='/Contact'>Contact</NavLink>
+                <NavLink to='/contact'>Contact</NavLink>
                 
 
                 <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
@@ -61,7 +61,7 @@ const Navbar = () => {
                 <NavLink to='/products' onClick={()=>setOpen(false)}>All Product</NavLink>
                 {user &&
                 <NavLink to='/products' onClick={()=>setOpen(false)}>My Orders</NavLink>}
-                <NavLink to='/' onClick={()=>setOpen(false)}>Contact</NavLink>
+                <NavLink to='/contact' onClick={()=>setOpen(false)}>Contact</NavLink>
                 
                 {!user?(<button onClick={()=>{
                     setOpen(false);
