@@ -1,4 +1,5 @@
-import logo from "./logo.svg";
+
+import Final_logo from './Final_logo.svg';
 import search_icon from "./search_icon.svg";
 import remove_icon from "./remove_icon.svg";
 import arrow_right_icon_colored from "./arrow_right_icon_colored.svg";
@@ -71,7 +72,8 @@ import brown_rice_image from "./brown_rice_image.png";
 import barley_image from "./barley_image.png";
 
 export const assets = {
-  logo,
+  
+  Final_logo,
   search_icon,
   remove_icon,
   arrow_right_icon_colored,
