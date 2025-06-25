@@ -1,9 +1,10 @@
 import React from 'react'
+import MainBanner from '../components/MainBanner'
 
 const Home = () => {
   return (
-    <div>
-      this is home
+    <div className='mt-10'>
+      <MainBanner />
     </div>
   )
 }
