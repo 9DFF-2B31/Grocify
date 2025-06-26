@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="px-6 md:px-16 lg:px-24 xl:px-32 mt-24 bg-primary/10">
             <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-gray-500/30 text-gray-500">
                 <div>
-                    <img className="h-9 scale-250 object-contain" src={assets.Final_logo} alt="logo" />
+                    <img className="h-9 scale-250 object-contain px-6" src={assets.Final_logo} alt="logo" />
                     <p className="max-w-[410px] mt-6">We deliver fresh groceries and snacks straight to your door. Trusted by thousands, we aim to make your shopping experience simple and affordable.</p>
                 </div>
                 <div className="flex flex-wrap justify-between w-full md:w-[45%] gap-5">
