@@ -14,7 +14,7 @@ const productSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
-    offerprice:{
+    offerPrice:{
         type:Number,
         required:true
     },
@@ -26,7 +26,7 @@ const productSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    instock:{
+    inStock:{
         type:Boolean,
         default:true
     }
