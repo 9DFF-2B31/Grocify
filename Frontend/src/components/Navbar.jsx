@@ -20,7 +20,7 @@ const Navbar = () => {
   const logout = async () => {
     try {
       const {data}=await axios.get("/api/user/logout")
-      console.log("navbar",data)
+
       if(data.success){
         toast.success(data.message)
             setUser(null);
@@ -88,7 +88,7 @@ const Navbar = () => {
           <button
             onClick={() => setShowUserLogin(true)}
             className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-full"
-          > {console.log(user)}
+          > 
             Login
           </button>
         ) : (
@@ -98,7 +98,7 @@ const Navbar = () => {
               <li
                 onClick={() => navigate("my-orders")}
                 className="p-1.5 pl-3 hover:bg-primary/10 cursor-pointer"
-              >{console.log(user)}
+              >
                 My Orders
               </li>
               <li
