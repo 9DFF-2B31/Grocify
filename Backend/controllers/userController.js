@@ -90,6 +90,7 @@ export const logout = async (req, res) => {
             secure: process.env.NODE_ENV === 'production',
             sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'strict',
         });
+        console.log("logout")
 
         return res.json({ success: true, message: "Logged Out" })
 
