@@ -4,7 +4,7 @@ import { assets, dummyAddress } from '../assets/assets'
 
 const Cart = () => {
     const [showAddress, setShowAddress] = useState(false)
-    const {products,currency,cartItems,removeFromCart,getCartCount,updateCartItem,navigate,getCartAmount}=useAppContext()
+    const {products,currency,cartItems,removeFromCart,getCartCount,updateCartItem,navigate,getCartAmount,setCartItems}=useAppContext()
     const [cartArray,setCartArray]=useState([])
     const [addresses,setAddresses]=useState(dummyAddress)
 
@@ -21,7 +21,31 @@ const Cart = () => {
         setCartArray(tempArray)
     }
 
-    const placeOrder=async()=>{}
+    const placeOrder=async()=>{
+        try {
+            if(!selectedAddress){
+                return toast.error("please select an address")
+            }
+            //place order with COD
+            if(paymentOption==="COD"){
+                const{data}=await axios.post('/api/order/cod',{
+                    userId:user._id,
+                    items:cartArray.map(item=>({product:item._id,quantity:item.quantity})),
+                    address:selectedAddress._id
+                })
+
+                if(data.sucess){
+                    toast.sucess(data.message)
+                    setCartItems({})
+                    navigate('/my-orders')
+                }else{
+                    toast.error(data.message)
+                }
+            }
+        } catch (error) {
+            toast.error(error.message)
+        }
+    }
 
     useEffect(()=>{
         if(products.length >0 && cartItems){
