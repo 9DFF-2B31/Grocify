@@ -20,13 +20,20 @@ export const addProduct=async (req,res) =>{
 
         await Product.create({...productData,image:imagesUrl})
 
-        res.json({success:true,message:"product added"})
+        return res.json({success:true,message:"product added"})
 
     } catch (error) {
-        console.log(error.message)
-        res.json({success:false,message:error.message})
+        console.log("hi"+error.message)
+        if (!res.headersSent) {
+      return res
+        .status(400)
+        .json({ success: false, message: error.message || 'Internal error' });
+    }
         
     }
+
+     // Only reply if nothing has been sent yet
+    
     
 }
 
@@ -62,10 +69,10 @@ export const changeStock = async (req,res) => {
     try {
         const {id ,inStock} =req.body;
         await Product.findByIdAndUpdate(id,{inStock})
-        res.json({success:true,message:"Stock updated"})
+        return res.json({success:true,message:"Stock updated"})
     } catch (error) {
         console.log(error.message)
-        res.json({success:false,message:error.message})
+        return res.json({success:false,message:error.message})
     }
         
     
