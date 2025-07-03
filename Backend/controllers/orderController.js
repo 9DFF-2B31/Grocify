@@ -23,7 +23,7 @@ export const placeOrderCOD=async(req,res)=>{
             address,
             paymentType:"COD"
         });
-        return res.json({sucess:true,message:"Order Placed Successfully"})
+        return res.json({success:true,message:"Order Placed Successfully"})
     } catch (error){
         return res.json({success:false,message:error.message});
     }
@@ -33,14 +33,14 @@ export const placeOrderCOD=async(req,res)=>{
 
 export const getUserOrders=async(req,res)=>{
     try{
-        const {userId}=req.body;
+        const {userId}=req;
         const order=await Order.find({
-            userid,
+            userId,
             $or:[{paymentType:"COD"},{isPaid:true}]
         }).populate("items.product address").sort({createdAt:-1});
-        res.json({sucess:true,orders});
+        res.json({success:true,order});
     } catch(error){
-        res.json({sucess:false,message:error.message});
+        res.json({success:false,message:error.message});
     }
 }
 
@@ -52,8 +52,8 @@ export const getAllOrders=async(req,res)=>{
         const order=await Order.find({
             $or:[{paymentType:"COD"},{isPaid:true}]
         }).populate("items.product address").sort({createdAt:-1});
-        res.json({sucess:true,orders});
+        res.json({success:true,order});
     } catch(error){
-        res.json({sucess:false,message:error.message});
+        res.json({success:false,message:error.message});
     }
 }

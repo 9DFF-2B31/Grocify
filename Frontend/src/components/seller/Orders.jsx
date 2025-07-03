@@ -11,14 +11,14 @@ const Orders = () => {
       try {
         const{data}=await axios.get('/api/order/seller');
         if(data.success){
-          setOrders(data.orders)
+          setOrders(data.order)
         }else{
           toast.error(data.message)
         }
       } catch (error) {
           toast.error(error.message)
       }
-  }
+  };
   useEffect(() => {
     fetchOrders();
 
