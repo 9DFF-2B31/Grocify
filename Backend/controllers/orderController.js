@@ -78,7 +78,8 @@ export const placeOrderStripe=async(req,res)=>{
                     product_data:{
                         name:item.name,
                     },
-                    unit_amount:Math.floor(item.price + item.price*0.02)*100
+                   unit_amount: Math.round(Number(item.price) * 1.02 * 100)
+
                 },
                 quantity:item.quantity,
             }
