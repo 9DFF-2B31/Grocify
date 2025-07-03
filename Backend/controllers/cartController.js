@@ -1,6 +1,3 @@
-
-
-
 // update  User CartData : /api/cart/update
 
 import User from "../models/User.js";
