@@ -19,7 +19,7 @@ const Login = () => {
         if(data.success){
             navigate('/')
             setUser(data.user)
-             setShowUserLogin(false)//hide login form
+            setShowUserLogin(false)//hide login form
 
         }else{
             toast.error(data.message)
