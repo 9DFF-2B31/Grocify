@@ -4,11 +4,11 @@ import { assets, dummyAddress } from '../assets/assets'
 
 const Cart = () => {
     const [showAddress, setShowAddress] = useState(false)
-    const {products,currency,cartItems,removeFromCart,getCartCount,updateCartItem,navigate,getCartAmount}=useAppContext()
+    const {products,currency,cartItems,removeFromCart,getCartCount,updateCartItem,navigate,getCartAmount,axios,user}=useAppContext()
     const [cartArray,setCartArray]=useState([])
-    const [addresses,setAddresses]=useState(dummyAddress)
+    const [addresses,setAddresses]=useState([])
 
-    const[selectAddress,setSelectAddress]=useState(dummyAddress[0])
+    const[selectAddress,setSelectAddress]=useState(null)
     const[paymentOption,setPaymentOption]=useState("COD")
 
     const getCart=()=>{
@@ -20,14 +20,38 @@ const Cart = () => {
         }
         setCartArray(tempArray)
     }
-
-    const placeOrder=async()=>{}
+const getUserAddress = async () => {
+  try {
+    const { data } = await axios.get('/api/address/get');
+    if (data.success) {
+      setAddresses(data.addresses);
+      if (data.addresses.length > 0) {
+        setSelectAddress(data.addresses[0]);
+      }
+    } else {
+      toast.error(data.message);
+    }
+  } catch (error) {
+    toast.error(error.message);
+  }
+};
+const placeOrder = async () => {
+ 
+};
 
     useEffect(()=>{
         if(products.length >0 && cartItems){
             getCart()
         }
     },[products,cartItems])
+
+    useEffect(()=>{
+        if(user){
+            getUserAddress()
+        }
+
+
+    },[user])
     
     return products.length >0 && cartItems ? (
         <div className="flex flex-col md:flex-row mt-16">
