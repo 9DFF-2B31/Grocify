@@ -24,10 +24,7 @@ export const addProduct=async (req,res) =>{
 
     } catch (error) {
         console.log("hi"+error.message)
-        if (!res.headersSent) {
-      return res
-        .status(400)
-        .json({ success: false, message: error.message || 'Internal error' });
+        return res.json({success:false,message:error.message})
     }
         
     }
@@ -35,7 +32,7 @@ export const addProduct=async (req,res) =>{
      // Only reply if nothing has been sent yet
     
     
-}
+
 
 // Get product:/api/product/list
 
