@@ -3,8 +3,9 @@ import ProfileCard from "../components/ProfileCard";
 
 const Contact = () => {
   return (
-    <div className="flex gap-5 mt-8">
-      <ProfileCard
+    <div className="grid gap-5 mt-8  md:grid-cols-2 lg:grid-cols-3">
+     <div className="w-fit">
+         <ProfileCard
         name="Harsh Agrawal"
         title="Software Engineer"
         handle="HarshAgrawal7672"
@@ -15,7 +16,9 @@ const Contact = () => {
         enableTilt={true}
         onContactClick={() => console.log("Contact clicked")}
       />
-      <ProfileCard
+     </div>
+      <div className="w-fit">
+        <ProfileCard
         name="Sneha Gupta"
         title="Software Engineer"
         handle="SnehaGupta"
@@ -26,7 +29,9 @@ const Contact = () => {
         enableTilt={true}
         onContactClick={() => console.log("Contact clicked")}
       />
-      <ProfileCard
+      </div>
+      <div className="w-fit">
+        <ProfileCard
         name="Kishan Behera"
         title="Software Engineer"
         handle="KishanBehera"
@@ -37,6 +42,7 @@ const Contact = () => {
         enableTilt={true}
         onContactClick={() => console.log("Contact clicked")}
       />
+      </div>
     </div>
   );
 };
