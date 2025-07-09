@@ -49,7 +49,7 @@ A full‑stack grocery ordering platform built with the **MERN stack**. Shoppers
 
 ## Live Demo
 
-> **[https://grocify.vercel.app](https://grocify.vercel.app)** — *replace with your actual URL*
+> **[https://grocify-delta.vercel.app/](https://grocify-delta.vercel.app/)** — *replace with your actual URL*
 
 ---
 
