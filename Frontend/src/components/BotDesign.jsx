@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ChatBot from './ChatBot'
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
 import ChatForm from './ChatForm'
+import ChatMessage from './ChatMessage'
 
 const BotDesign = () => {
+    const [chatHistory,setChatHistory]=useState([]);
+    const generateBotResponse=()=>{ }
     return (
         <div className='w-full min-h-screen flex items-center justify-center'>
             <div className='container'>
@@ -21,13 +24,14 @@ const BotDesign = () => {
                             <p className='message-text'>Hey there <br /> How Can I help You Today?</p>
 
                         </div>
-                        <div className="message user-message">
+                        {/*Render the chat history dynamically*/}
+                        {console.log(chatHistory)}
+                        {chatHistory.map((chat,index)=>(<ChatMessage  key={index} chat={chat} /> 
+                        ))}
+                        
 
-                            <p className='message-text'>Hey there <br /> How Can I help You Today?</p>
-
-                        </div>
                         <div className="chat-footer">
-                            <ChatForm />
+                            <ChatForm setChatHistory={setChatHistory} />
 
                             
                         </div>
