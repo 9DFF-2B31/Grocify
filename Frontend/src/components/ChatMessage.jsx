@@ -4,13 +4,14 @@ import ReactMarkdown from 'react-markdown';
 
 const ChatMessage = ({ chat }) => {
   return (
-    <div className={`message ${chat.role === 'model' ? 'bot' : 'user'}-message`}>
+    !chat.hideinchat &&
+    (<div className={`message ${chat.role === 'model' ? 'bot' : 'user'}-message`}>
       {chat.role === 'model' && <ChatBot />}
 
       <div className="message-text">
         <ReactMarkdown>{chat.text}</ReactMarkdown>
       </div>
-    </div>
+    </div>)
   );
 };
 

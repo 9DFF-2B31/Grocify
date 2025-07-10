@@ -15,15 +15,50 @@
     display: none;
 }
 
+
+#chatbot-toggler {
+    position: fixed;
+    bottom: 30px;
+    right: 35px;
+    border: none;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    cursor: pointer;
+    background: #4fbf8b;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+#chatbot-toggler span{
+    position: absolute;
+    color: #fff;
+}
 .chatbot-popup {
-    position: relative;
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    bottom: 90px;
+    right: 35px;
     width: 420px;
+    transform: scale(0.2);
+    transform-origin: bottom right;
     overflow: hidden;
     background: #fff;
     border-radius: 15px;
     box-shadow:
         0 0 128px 0 rgba(0, 0, 0, 0.1),
         0 32px 64px -48px rgba(0, 0, 0, 0.5);
+
+    transition: all 0.1s ease;
+}
+
+.container.show-chatbot .chatbot-popup{
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+
 }
 
 .chatbot-popup .chat-header {
