@@ -52,9 +52,9 @@ const App = () => {
 
 
         </Routes>
-       <BotDesign />
 
       </div>
+       <BotDesign />
       {!isSellerPath && <Footer />}
 
     </div>

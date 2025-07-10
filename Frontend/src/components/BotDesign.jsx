@@ -84,7 +84,7 @@ const BotDesign = () => {
   };
 
   return (
-    <div className="w-full min-h-screen">
+    <div className="w-full ">
       <div className={`container ${showChatBot ? "show-chatbot" : ""}`}>
         <button
           id="chatbot-toggler"
