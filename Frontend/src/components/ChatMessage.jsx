@@ -1,15 +1,17 @@
-import React from 'react'
-import ChatBot from './ChatBot'
+import React from 'react';
+import ChatBot from './ChatBot';
+import ReactMarkdown from 'react-markdown';
 
-const ChatMessage = ({chat}) => {
+const ChatMessage = ({ chat }) => {
   return (
-    <div className={`message ${chat.role==="model"?'bot':'user'}-message`}>
-        {chat.role==="model"&&  <ChatBot /> }
+    <div className={`message ${chat.role === 'model' ? 'bot' : 'user'}-message`}>
+      {chat.role === 'model' && <ChatBot />}
 
-                            <p className='message-text'>{chat.text}</p>
+      <div className="message-text">
+        <ReactMarkdown>{chat.text}</ReactMarkdown>
+      </div>
+    </div>
+  );
+};
 
-                        </div>
-  )
-}
-
-export default ChatMessage
+export default ChatMessage;
